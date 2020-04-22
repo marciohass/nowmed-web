@@ -6,9 +6,9 @@ import { AdminModule } from './admin/admin.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthGuard } from './guards/auth.guard';
-// import { TokenInterceptor } from './interceptors/token.interceptor';
+import { TokenInterceptor } from './interceptors/token.interceptor';
 
 
 
@@ -25,7 +25,7 @@ import { AuthGuard } from './guards/auth.guard';
   ],
   providers: [
     AuthGuard,
-    // { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })

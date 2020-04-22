@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { User } from '../interfaces/user';
+import { ConsoleReporter } from 'jasmine';
 
 
 @Injectable({
@@ -24,7 +25,7 @@ export class AuthService {
     .pipe(
       tap(data => {
         localStorage.setItem('token', data.token);
-        localStorage.setItem('user', btoa(JSON.stringify(data.user)));
+        localStorage.setItem('user', JSON.stringify(data.user));
       })
     );
   }
@@ -38,7 +39,7 @@ export class AuthService {
   }
 
   getUser(): User {
-    return localStorage.getItem('user') ? JSON.parse(atob(localStorage.getItem('user'))) : null;
+    return localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null;
   }
 
   setUser(): Promise<boolean> {
