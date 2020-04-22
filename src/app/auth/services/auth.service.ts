@@ -6,8 +6,6 @@ import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { User } from '../interfaces/user';
-import { ConsoleReporter } from 'jasmine';
-
 
 @Injectable({
   providedIn: 'root'
