@@ -9,17 +9,13 @@ import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthGuard } from './guards/auth.guard';
 import { TokenInterceptor } from './interceptors/token.interceptor';
-import { AplicationErrorHandle } from './app.error-handle';
-import { AlertModalComponent } from './shared/alert-modal/alert-modal.component';
-import { ConfirmModalComponent } from './shared/confirm-modal/confirm-modal.component';
+import { AplicationErrorHandle } from './app.error-handle';\
 import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AlertModalComponent,
-    ConfirmModalComponent
   ],
   imports: [
     BrowserModule,
