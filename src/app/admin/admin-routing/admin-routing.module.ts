@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { AdminComponent } from './../admin.component';
 import { AdminDashboard1Component } from './../admin-dashboard1/admin-dashboard1.component';
 import { AuthGuard } from './../../guards/auth.guard';
+import { InstitutiontypeComponent } from './../institutiontype/institutiontype.component';
 
 
 @NgModule({
@@ -20,6 +21,11 @@ import { AuthGuard } from './../../guards/auth.guard';
             pathMatch: 'full'
           },
           { path: 'dashboard1', component: AdminDashboard1Component },
+          { path: 'institutiontype', component: InstitutiontypeComponent },
+          {
+            path: 'institution-types',
+            loadChildren: () => import('./../institution-types/institution-type.module').then(m => m.InstitutionTypeModule)
+          },
         ]
       }
     ])
